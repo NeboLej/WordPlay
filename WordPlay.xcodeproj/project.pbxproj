@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		FAECE49B28F6314300EE05CF /* WordPlayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE49A28F6314300EE05CF /* WordPlayApp.swift */; };
-		FAECE49D28F6314300EE05CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE49C28F6314300EE05CF /* ContentView.swift */; };
+		FAECE49D28F6314300EE05CF /* WPStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE49C28F6314300EE05CF /* WPStartView.swift */; };
 		FAECE49F28F6314800EE05CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAECE49E28F6314800EE05CF /* Assets.xcassets */; };
 		FAECE4A228F6314800EE05CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAECE4A128F6314800EE05CF /* Preview Assets.xcassets */; };
+		FAECE4AA28F63D2B00EE05CF /* WPTitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE4A928F63D2B00EE05CF /* WPTitleTextView.swift */; };
+		FAECE4AC28F63DF400EE05CF /* WPTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE4AB28F63DF400EE05CF /* WPTextFieldView.swift */; };
+		FAECE4AF28F6416B00EE05CF /* WPGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE4AE28F6416B00EE05CF /* WPGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FAECE49728F6314300EE05CF /* WordPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAECE49A28F6314300EE05CF /* WordPlayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPlayApp.swift; sourceTree = "<group>"; };
-		FAECE49C28F6314300EE05CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FAECE49C28F6314300EE05CF /* WPStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPStartView.swift; sourceTree = "<group>"; };
 		FAECE49E28F6314800EE05CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAECE4A128F6314800EE05CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAECE4A928F63D2B00EE05CF /* WPTitleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPTitleTextView.swift; sourceTree = "<group>"; };
+		FAECE4AB28F63DF400EE05CF /* WPTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPTextFieldView.swift; sourceTree = "<group>"; };
+		FAECE4AE28F6416B00EE05CF /* WPGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +57,9 @@
 		FAECE49928F6314300EE05CF /* WordPlay */ = {
 			isa = PBXGroup;
 			children = (
+				FAECE4AD28F640D700EE05CF /* Views */,
+				FAECE4A828F63D1700EE05CF /* Components */,
 				FAECE49A28F6314300EE05CF /* WordPlayApp.swift */,
-				FAECE49C28F6314300EE05CF /* ContentView.swift */,
 				FAECE49E28F6314800EE05CF /* Assets.xcassets */,
 				FAECE4A028F6314800EE05CF /* Preview Content */,
 			);
@@ -65,6 +72,24 @@
 				FAECE4A128F6314800EE05CF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FAECE4A828F63D1700EE05CF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FAECE4A928F63D2B00EE05CF /* WPTitleTextView.swift */,
+				FAECE4AB28F63DF400EE05CF /* WPTextFieldView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FAECE4AD28F640D700EE05CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAECE49C28F6314300EE05CF /* WPStartView.swift */,
+				FAECE4AE28F6416B00EE05CF /* WPGameView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAECE49D28F6314300EE05CF /* ContentView.swift in Sources */,
+				FAECE4AF28F6416B00EE05CF /* WPGameView.swift in Sources */,
+				FAECE4AC28F63DF400EE05CF /* WPTextFieldView.swift in Sources */,
+				FAECE49D28F6314300EE05CF /* WPStartView.swift in Sources */,
+				FAECE4AA28F63D2B00EE05CF /* WPTitleTextView.swift in Sources */,
 				FAECE49B28F6314300EE05CF /* WordPlayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,8 +301,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -284,7 +315,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -302,8 +333,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,7 +347,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
