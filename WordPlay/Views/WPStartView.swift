@@ -41,7 +41,9 @@ struct WPStartView: View {
             Spacer()
         }
         .background(Color("wpColor1"))
-        .fullScreenCover(isPresented: $isShowedGame, content: { WPGameView() })
+        .fullScreenCover(isPresented: $isShowedGame, content: {
+            
+            WPGameView(viewModel: WPGameViewModel(playerOne: playerOne, playerTwo: playerTwo, longWord: longWord)) })
     }
 }
 

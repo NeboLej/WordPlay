@@ -10,6 +10,7 @@ import SwiftUI
 struct WPGameView: View {
     
     @State var text = ""
+    var viewModel: WPGameViewModel
     
     var body: some View {
         VStack(spacing: 16) {
@@ -27,16 +28,16 @@ struct WPGameView: View {
                 
                 Spacer()
             }
-            Text("БольшоеСлово")
+            Text(viewModel.longWord)
                 .font(.custom("AvenirNext-Bold", size: 36))
                 .foregroundColor(.white)
             
             HStack(spacing: 12) {
                 VStack {
-                    Text("0")
+                    Text("\(viewModel.playerOne.score)")
                         .font(.custom("AvenirNext-Bold", size: 60))
                         .foregroundColor(.white)
-                    Text("Name")
+                    Text(viewModel.playerOne.name)
                         .font(.custom("AvenirNext-Bold", size: 24))
                         .foregroundColor(.white)
                 }
@@ -48,10 +49,10 @@ struct WPGameView: View {
                 .opacity(0.4)
                 
                 VStack {
-                    Text("0")
+                    Text("\(viewModel.playerTwo.score)")
                         .font(.custom("AvenirNext-Bold", size: 60))
                         .foregroundColor(.white)
-                    Text("Name")
+                    Text(viewModel.playerTwo.name)
                         .font(.custom("AvenirNext-Bold", size: 24))
                         .foregroundColor(.white)
                 }
@@ -67,8 +68,9 @@ struct WPGameView: View {
                 .padding(.horizontal)
             
             Button {
-                print("готово")
-                text = ""
+                if viewModel.game(word: text) {
+                    text = ""
+                }
             } label: {
                 Text("Готово")
                     .padding(12)
@@ -90,6 +92,6 @@ struct WPGameView: View {
 
 struct WPGameView_Previews: PreviewProvider {
     static var previews: some View {
-        WPGameView()
+        WPGameView(viewModel: WPGameViewModel(playerOne: "Вася", playerTwo: "Петя", longWord: "Абракадабра"))
     }
 }
