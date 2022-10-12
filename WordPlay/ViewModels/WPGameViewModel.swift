@@ -7,12 +7,20 @@
 
 import Foundation
 
+
+enum WordError: Error {
+    case theSameWord
+    case beforeWord
+    case littleWord
+    case wrongWord
+}
 class WPGameViewModel: ObservableObject {
     
     @Published var playerOne: WPPlayerModel
     @Published var playerTwo: WPPlayerModel
     @Published var words = [String]()
     
+    var errorDescription = ""
     let longWord: String
     var isFirst = true
     
@@ -22,9 +30,13 @@ class WPGameViewModel: ObservableObject {
         self.longWord = longWord.lowercased()
     }
     
-    func game(word: String) -> Bool {
+    func game(word: String) throws -> Bool {
         
-        guard validate(word: word) else { return false }
+        do {
+            try validate(word: word)
+        } catch {
+            throw error
+        }
         
         words.append(word)
         if isFirst {
@@ -38,33 +50,34 @@ class WPGameViewModel: ObservableObject {
         return true
     }
     
-    private func validate(word: String) -> Bool {
+    private func validate(word: String) throws {
         
         let word = word.lowercased()
         
         guard word != longWord else {
-            print("Это изначальное слово")
-            return false }
+            errorDescription = "Это изначальное слово"
+            throw WordError.theSameWord
+            }
         
         guard !words.contains(word) else {
-            print("Слово уже было")
-            return false }
+            errorDescription = "Слово уже было"
+            throw WordError.beforeWord
+            }
         
         guard word.count > 1 else {
-            print("Слово слишком короткое")
-            return false }
+            errorDescription = "Слово слишком короткое"
+            throw WordError.littleWord
+            }
         
         let bigWordArray = wordToChars(word: longWord)
         let smallWordArray = wordToChars(word: word)
         
         for char in smallWordArray {
             if !bigWordArray.contains(char) {
-                print("В слове есть буквы, которые нельзя использовать")
-                return false
+                errorDescription = "В слове есть буквы, которые нельзя использовать"
+                throw WordError.wrongWord
             }
         }
-        
-        return true
     }
     
     private func wordToChars(word: String) -> [Character] {

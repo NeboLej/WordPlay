@@ -10,13 +10,16 @@ import SwiftUI
 struct WPGameView: View {
     
     @State var text = ""
+    @State var isConformShow = false
+    @State var isAllertShow = false
+    @Environment(\.dismiss) var dismiss
     var viewModel: WPGameViewModel
     
     var body: some View {
         VStack(spacing: 16) {
             HStack {
                 Button("Выход") {
-                    print("выход")
+                    isConformShow = true
                 }
                 .padding(6)
                 .padding(.horizontal)
@@ -46,7 +49,7 @@ struct WPGameView: View {
                 .background(Color("wpColor3"))
                 .cornerRadius(24)
                 .shadow(color: .blue, radius: 10)
-                .opacity(0.4)
+                .opacity( viewModel.isFirst ? 1.0 : 0.4)
                 
                 VStack {
                     Text("\(viewModel.playerTwo.score)")
@@ -61,32 +64,56 @@ struct WPGameView: View {
                 .background(Color("wpColor3"))
                 .cornerRadius(24)
                 .shadow(color: .blue, radius: 10)
-                .opacity(1)
+                .opacity(!viewModel.isFirst ? 1.0 : 0.4)
             }
             
             WPTextFieldView(text: $text, placeholder: "Ваше слово")
                 .padding(.horizontal)
             
             Button {
-                if viewModel.game(word: text) {
-                    text = ""
+                do {
+                    if try viewModel.game(word: text) {
+                        text = ""
+                    }
+                } catch {
+                    isAllertShow = true
                 }
+                
             } label: {
                 Text("Готово")
                     .padding(12)
                     .foregroundColor(.white)
                     .font(.custom("AvenirNext-Bold", size: 26))
-                    
+                
             }.frame(maxWidth: .infinity)
                 .background(Color("wpColor4"))
                 .cornerRadius(12)
                 .padding(.horizontal)
             
             List {
-                
+                ForEach(0..<viewModel.words.count, id: \.description) { id in
+                    WPWordCell(word: viewModel.words[id])
+                        .background(id % 2 == 0 ? Color.black : Color.gray)
+                        .listRowInsets(EdgeInsets())
+                }
             }.listStyle(.plain)
                 .frame(maxWidth: .infinity ,maxHeight: .infinity)
         }.background(Color("wpColor1"))
+            .confirmationDialog("Вы точно ходите закончить игру?", isPresented: $isConformShow, titleVisibility: .visible) {
+                Button(role: .destructive) {
+                    dismiss()
+                } label: {
+                    Text("Да")
+                }
+                Button(role: .cancel) {
+                    
+                } label: {
+                    Text("Нет")
+                }
+            }
+            .alert(viewModel.errorDescription, isPresented: $isAllertShow) {
+                Text("Ok")
+            }
     }
 }
 

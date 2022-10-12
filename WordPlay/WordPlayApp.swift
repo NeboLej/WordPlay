@@ -13,7 +13,7 @@ let screen = UIScreen.main.bounds
 struct WordPlayApp: App {
     var body: some Scene {
         WindowGroup {
-            WPStartView()
+            WPStartView(viewModel: WPStartViewModel())
         }
     }
 }
