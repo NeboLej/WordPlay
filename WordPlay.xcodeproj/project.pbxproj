@@ -16,6 +16,8 @@
 		FAECE4AF28F6416B00EE05CF /* WPGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE4AE28F6416B00EE05CF /* WPGameView.swift */; };
 		FAECE4B228F728C800EE05CF /* WPPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE4B128F728C800EE05CF /* WPPlayerModel.swift */; };
 		FAECE4B528F729C200EE05CF /* WPGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE4B428F729C200EE05CF /* WPGameViewModel.swift */; };
+		FAECE4B728F7492D00EE05CF /* WPStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE4B628F7492D00EE05CF /* WPStartViewModel.swift */; };
+		FAECE4B928F75C4B00EE05CF /* WPWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECE4B828F75C4B00EE05CF /* WPWordCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		FAECE4AE28F6416B00EE05CF /* WPGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPGameView.swift; sourceTree = "<group>"; };
 		FAECE4B128F728C800EE05CF /* WPPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPPlayerModel.swift; sourceTree = "<group>"; };
 		FAECE4B428F729C200EE05CF /* WPGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPGameViewModel.swift; sourceTree = "<group>"; };
+		FAECE4B628F7492D00EE05CF /* WPStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPStartViewModel.swift; sourceTree = "<group>"; };
+		FAECE4B828F75C4B00EE05CF /* WPWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPWordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			children = (
 				FAECE4A928F63D2B00EE05CF /* WPTitleTextView.swift */,
 				FAECE4AB28F63DF400EE05CF /* WPTextFieldView.swift */,
+				FAECE4B828F75C4B00EE05CF /* WPWordCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				FAECE4B428F729C200EE05CF /* WPGameViewModel.swift */,
+				FAECE4B628F7492D00EE05CF /* WPStartViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -186,9 +192,11 @@
 			files = (
 				FAECE4B528F729C200EE05CF /* WPGameViewModel.swift in Sources */,
 				FAECE4AF28F6416B00EE05CF /* WPGameView.swift in Sources */,
+				FAECE4B728F7492D00EE05CF /* WPStartViewModel.swift in Sources */,
 				FAECE4B228F728C800EE05CF /* WPPlayerModel.swift in Sources */,
 				FAECE4AC28F63DF400EE05CF /* WPTextFieldView.swift in Sources */,
 				FAECE49D28F6314300EE05CF /* WPStartView.swift in Sources */,
+				FAECE4B928F75C4B00EE05CF /* WPWordCell.swift in Sources */,
 				FAECE4AA28F63D2B00EE05CF /* WPTitleTextView.swift in Sources */,
 				FAECE49B28F6314300EE05CF /* WordPlayApp.swift in Sources */,
 			);

@@ -15,6 +15,8 @@ struct WPStartView: View {
     
     @State var isShowedGame = false
     
+    @ObservedObject var viewModel: WPStartViewModel
+    
     var body: some View {
         VStack {
           Spacer()
@@ -30,7 +32,9 @@ struct WPStartView: View {
                 .padding(.horizontal, 20)
             
             Button("Играть") {
-                isShowedGame.toggle()
+                if viewModel.checkFields(playerOne: playerOne, playerTwo: playerTwo, longWord: longWord) {
+                    isShowedGame.toggle()
+                }
             }.font(.custom("AvenirNext-Bold", size: 42))
                 .foregroundColor(Color("wpColor4"))
                 .padding()
@@ -41,6 +45,9 @@ struct WPStartView: View {
             Spacer()
         }
         .background(Color("wpColor1"))
+        .alert(viewModel.errorDescription, isPresented: $viewModel.isShowAlert, actions: {
+            Text("Ok")
+        })
         .fullScreenCover(isPresented: $isShowedGame, content: {
             
             WPGameView(viewModel: WPGameViewModel(playerOne: playerOne, playerTwo: playerTwo, longWord: longWord)) })
@@ -49,6 +56,6 @@ struct WPStartView: View {
 
 struct WPStartView_Previews: PreviewProvider {
     static var previews: some View {
-        WPStartView()
+        WPStartView(viewModel: WPStartViewModel())
     }
 }
